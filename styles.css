@@ -263,3 +263,33 @@ p{margin:0;color:var(--muted);line-height:1.65}
     margin: 20px auto;  /* centers the image */
     border-radius: 12px; /* optional: rounded corners */
 }
+.page-header {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.content-container {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.content-section {
+  background: #fff7ec;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 12px;
+  line-height: 1.7;
+}
+
+.acharya-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.acharya-img {
+  width: 260px;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
