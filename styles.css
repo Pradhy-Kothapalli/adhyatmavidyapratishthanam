@@ -254,3 +254,12 @@ p{margin:0;color:var(--muted);line-height:1.65}
   background: rgba(255,255,255,.22);
   border-color: rgba(255,255,255,.95);
 }
+
+.hero-banner {
+    width: 100%;
+    max-width: 500px;   /* controls how big it can get */
+    height: auto;       /* keeps aspect ratio */
+    display: block;
+    margin: 20px auto;  /* centers the image */
+    border-radius: 12px; /* optional: rounded corners */
+}
