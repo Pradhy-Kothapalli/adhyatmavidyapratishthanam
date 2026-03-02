@@ -408,12 +408,12 @@ p{margin:0;color:var(--muted);line-height:1.65}
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.8s ease-out;
+  transition: opacity 0.6s ease-out;
 }
 
 .curtain.hidden{
-  pointer-events: none;
   opacity: 0;
+  pointer-events: none;
 }
 
 .curtain-video{
@@ -426,27 +426,29 @@ p{margin:0;color:var(--muted);line-height:1.65}
   position: absolute;
   bottom: 24px;
   right: 24px;
-  z-index: 10000;
-  padding: 10px 20px;
+  z-index: 10001;
+  padding: 10px 18px;
   font-size: 14px;
-  font-family: inherit;
   color: rgba(255,255,255,0.9);
-  background: rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 8px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 10px;
   cursor: pointer;
 }
 
-.skip-btn:hover{
-  background: rgba(255,255,255,0.15);
-  color: #fff;
+.tap-hint{
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10001;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
 }
 
-/* Hide page content until curtain finishes */
-.hidden-content{
-  visibility: hidden;
-}
-
-.visible-content{
-  visibility: visible;
-}
+/* Hide page content until curtain ends */
+.hidden-content{ visibility: hidden; }
+.visible-content{ visibility: visible; }
