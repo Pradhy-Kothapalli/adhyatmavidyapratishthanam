@@ -386,3 +386,16 @@ p{margin:0;color:var(--muted);line-height:1.65}
   margin: 0 auto;
   background: #000;
 }
+
+.about-image {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.about-image img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
