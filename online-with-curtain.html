@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVP Kadapa — Online</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .curtain {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      background: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease-out;
+    }
+    .curtain.hidden {
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .curtain-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .skip-btn {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      z-index: 11;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-family: inherit;
+      color: rgba(255,255,255,0.9);
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .skip-btn:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .content-frame {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+    }
+    .content-frame.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="curtain" id="curtain">
+    <video class="curtain-video" id="curtainVideo" playsinline muted>
+      <!-- Primary: Logo_Video.mp4. After merging, use Merged_Output.mp4 for video+audio -->
+      <source src="Logo_Video.mp4" type="video/mp4">
+      <source src="Merged_Output.mp4" type="video/mp4">
+    </video>
+    <button type="button" class="skip-btn" id="skipBtn" aria-label="Skip to page">Skip →</button>
+  </div>
+
+  <iframe
+    class="content-frame"
+    id="contentFrame"
+    src="about:blank"
+    title="AVP Online"
+  ></iframe>
+
+  <script>
+    const curtain = document.getElementById('curtain');
+    const video = document.getElementById('curtainVideo');
+    const skipBtn = document.getElementById('skipBtn');
+    const contentFrame = document.getElementById('contentFrame');
+
+    const targetUrl = 'https://pradhy-kothapalli.github.io/adhyatmavidyapratishthanam/online.html';
+
+    function showPage() {
+      curtain.classList.add('hidden');
+      contentFrame.classList.add('visible');
+      contentFrame.src = targetUrl;
+    }
+
+    video.addEventListener('ended', showPage);
+
+    skipBtn.addEventListener('click', showPage);
+
+    // Start playback (muted for autoplay policies)
+    video.play().catch(function () {
+      skipBtn.focus();
+    });
+  </script>
+</body>
+</html>

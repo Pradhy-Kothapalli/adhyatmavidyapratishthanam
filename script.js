@@ -9,19 +9,23 @@
   if (y) y.textContent = new Date().getFullYear();
 })();
 
-function startMantraOnce() {
-  const mantraVideo = document.getElementById("bg-audio");
-  if (!mantraVideo) return;
+(function () {
+  const curtain = document.getElementById("curtain");
+  const video = document.getElementById("curtainVideo");
+  const skipBtn = document.getElementById("skipBtn");
+  const pageContent = document.getElementById("pageContent");
 
-  // Ensure it's allowed to start
-  mantraVideo.muted = true;
+  if (!curtain || !video || !skipBtn || !pageContent) return;
 
-  mantraVideo.play().then(() => {
-    // After playback starts, unmute
-    mantraVideo.muted = false;
-  }).catch(() => {});
+  function showHome() {
+    curtain.classList.add("hidden");
+    pageContent.classList.remove("hidden-content");
+    pageContent.classList.add("visible-content");
+  }
 
-  window.removeEventListener("pointerdown", startMantraOnce);
-}
+  video.addEventListener("ended", showHome);
+  skipBtn.addEventListener("click", showHome);
 
-window.addEventListener("pointerdown", startMantraOnce);
+  // Start muted autoplay (allowed by browsers)
+  video.play().catch(() => {});
+})();
