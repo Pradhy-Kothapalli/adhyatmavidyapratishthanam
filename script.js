@@ -9,7 +9,6 @@
   if (y) y.textContent = new Date().getFullYear();
 })();
 
-// Curtain intro on Home (index.html)
 document.addEventListener("DOMContentLoaded", () => {
   const curtain = document.getElementById("curtain");
   const video = document.getElementById("curtainVideo");
@@ -17,32 +16,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const pageContent = document.getElementById("pageContent");
   const tapHint = document.getElementById("tapHint");
 
-  // If we're not on the home page (or elements not present), do nothing
   if (!curtain || !video || !skipBtn || !pageContent) return;
 
   function revealHome() {
+    // STOP SOUND
+    video.pause();
+    video.currentTime = 0;
+    video.muted = true;
+
     curtain.classList.add("hidden");
     pageContent.classList.remove("hidden-content");
     pageContent.classList.add("visible-content");
 
-    // Actually remove it after fade so it doesn't sit on top
     setTimeout(() => {
       curtain.style.display = "none";
     }, 650);
   }
 
-  // Always allow skip
+  // Skip button
   skipBtn.addEventListener("click", revealHome);
 
-  // Try to autoplay muted (allowed)
+  // Autoplay muted (allowed)
   video.muted = true;
-  video.play().catch(() => {
-    // If autoplay fails, skip still works
-  });
+  video.play().catch(() => {});
 
-  // Enable sound + restart playback on first user interaction
+  // Enable sound on first tap
   function enableSoundOnce() {
-    // Some browsers like: play muted first, then unmute
     video.muted = false;
     video.play().catch(() => {});
     if (tapHint) tapHint.style.display = "none";
@@ -50,6 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.addEventListener("pointerdown", enableSoundOnce, { once: true });
 
-  // When video ends, reveal home
+  // When video finishes naturally
   video.addEventListener("ended", revealHome);
 });
