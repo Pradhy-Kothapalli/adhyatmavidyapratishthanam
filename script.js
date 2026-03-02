@@ -41,14 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
   video.play().catch(() => {});
 
   // Enable sound on first tap
-  function enableSoundOnce() {
-    video.muted = false;
-    video.play().catch(() => {});
-    if (tapHint) tapHint.style.display = "none";
-    window.removeEventListener("pointerdown", enableSoundOnce);
-  }
-  window.addEventListener("pointerdown", enableSoundOnce, { once: true });
+function enableSoundOnce() {
+  video.muted = false;
+  video.volume = 1;
 
-  // When video finishes naturally
-  video.addEventListener("ended", revealHome);
+  video.play().catch(() => {});
+
+  if (tapHint) tapHint.style.display = "none";
+
+  curtain.removeEventListener("click", enableSoundOnce);
+  curtain.removeEventListener("touchstart", enableSoundOnce);
+}
+
+curtain.addEventListener("click", enableSoundOnce, { once: true });
+curtain.addEventListener("touchstart", enableSoundOnce, { once: true, passive: true });
 });
