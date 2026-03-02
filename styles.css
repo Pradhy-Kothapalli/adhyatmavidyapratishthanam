@@ -345,3 +345,19 @@ p{margin:0;color:var(--muted);line-height:1.65}
   align-self: flex-start;
   margin-top: 14px;
 }
+
+.hero-image{
+  text-align: center;
+  margin: 14px 0;
+}
+
+.hero-image img{
+  width: 100%;
+  max-width: 520px;    
+  max-height: 320px;    
+  height: auto;
+  object-fit: contain;  
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
