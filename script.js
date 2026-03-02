@@ -9,10 +9,13 @@
   if (y) y.textContent = new Date().getFullYear();
 })();
 
-document.addEventListener("click", function () {
+function startMantraOnce() {
   const mantraVideo = document.getElementById("bg-audio");
-  if (mantraVideo) {
-    mantraVideo.muted = false;   // enable sound
-    mantraVideo.play().catch(() => {});
-  }
-}, { once: true });
+  if (!mantraVideo) return;
+
+  mantraVideo.muted = false;
+  mantraVideo.play().catch(() => {});
+  window.removeEventListener("pointerdown", startMantraOnce);
+}
+
+window.addEventListener("pointerdown", startMantraOnce);
