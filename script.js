@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!curtain || !video || !skipBtn || !pageContent) return;
 
   function revealHome() {
-    // STOP SOUND
+    // 🔇 STOP SOUND
     video.pause();
     video.currentTime = 0;
     video.muted = true;
