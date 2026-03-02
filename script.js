@@ -13,8 +13,14 @@ function startMantraOnce() {
   const mantraVideo = document.getElementById("bg-audio");
   if (!mantraVideo) return;
 
-  mantraVideo.muted = false;
-  mantraVideo.play().catch(() => {});
+  // Ensure it's allowed to start
+  mantraVideo.muted = true;
+
+  mantraVideo.play().then(() => {
+    // After playback starts, unmute
+    mantraVideo.muted = false;
+  }).catch(() => {});
+
   window.removeEventListener("pointerdown", startMantraOnce);
 }
 
