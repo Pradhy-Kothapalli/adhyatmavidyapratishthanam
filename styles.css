@@ -314,3 +314,38 @@ p{margin:0;color:var(--muted);line-height:1.65}
   font-size: 0.85rem;
   opacity: 0.85;
 }
+
+.event-banner {
+  position: relative;
+  margin: 20px auto;
+  max-width: 1100px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.event-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banner-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 16px 20px;
+}
+
+.banner-text h2 {
+  margin: 0 0 5px;
+  font-size: 1.6rem;
+}
+
+.banner-text p {
+  margin: 0;
+  font-size: 1rem;
+}
