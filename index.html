@@ -28,11 +28,14 @@
       <a class="btn primary" href="contact.html">Contact</a>
     </nav>
   </header>
-  <video id="bg-audio" autoplay loop muted style="display:none;">
-  <source src="Videos/logo-music-02.mp4" type="video/mp4">
-</video>
+<div class="mantra-player">
+  <div class="mantra-title">Mantra Preview</div>
 
-<button id="enable-audio" class="music-btn">Play Mantra</button>
+  <video id="bg-audio" controls preload="metadata">
+    <source src="Videos/logo-music-02.mp4" type="video/mp4">
+    Your browser does not support the audio/video element.
+  </video>
+</div>
   <div class="wrap">
     <section class="hero">
       <div class="card heroMain">
